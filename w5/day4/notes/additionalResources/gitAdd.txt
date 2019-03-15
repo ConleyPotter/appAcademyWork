@@ -1,0 +1,19 @@
+USING GIT ADD
+
+Use git add <files> or git add -A instead of git add . or git add -u
+
+THE BACKGROUND
+
+When you run git add . you're telling git, "take everything that's new or has
+changed in my current directory and add it to the staging area". We discourage
+this, because we usually are only working on a few files at a time and it is easy
+to accidentally include files that have sensitive information (such as API
+Keys, etc.).
+
+When you run git add -A you are telling git, "take my all the changes from my entire
+project up to my top level directory (where the .git directory resides) and all
+those to my staging area". We also discourage this, because we usually are only 
+working on a few files at a time and it si easy to accidentally changes that have
+nothing to do with the current commit.
+
+... TBC ... 

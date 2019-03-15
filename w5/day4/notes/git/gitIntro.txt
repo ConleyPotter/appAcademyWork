@@ -1,0 +1,7 @@
+Why we use Git
+
+1.) Keep track of changes
+        # - Who made what changes
+        # - When change were made
+
+2.) Multiple people can work on a project at once

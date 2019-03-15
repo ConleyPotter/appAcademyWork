@@ -1,0 +1,68 @@
+SERIALIZATION AND PERSISTENCE
+
+-- Goals -- 
+    - Know what serialization and persistence are.
+    - Know how to transfer between a Ruby object and a JSON or YAML representation.
+    - Know how to save these to a file you might read again later.
+
+-- serialization --
+
+Ruby objects live within the context of a Ruby program. You may want to send 
+your Ruby object to another computer across a network. Alternatively, you may 
+want to save your Ruby object to the hard drive, so that when you run your program 
+again later, it might be reloaded. You cannot do either of these things directly.
+
+To do this you need to first convert the Ruby object into a representation 
+that can be saved to disk or sent over a network. This process is called 
+serialization.
+
+There are many serialization formats, or ways of representing data. Probably the
+most important in teh web world is JSON:
+
+{ "fieldA": "valueA",
+  "fieldB": [1, 2, 3] }
+
+JSON supports a few primitive forms of data: numbers, strings, arrays and hashes. 
+It is descended from JavaScript, and is commonly used as the message format for 
+web APIs. The format is pretty easy to read, but it's not essential that you be 
+able to write JSON yourself; we'll see how to get Ruby to do that for us.
+
+You can easily serialize basic Ruby objects to a JSON string:
+
+> require 'json'
+> { "a" => "always",
+    "b" => "be",
+    "c" => "closing" }.to_json
+=> '{"a":"always","b":"be","c":"closing"}'
+> JSON.parse('{"a":"always","b":"be","c":"closing"}')
+=> {"a"=>"always", "b"=>"be", "c"=>"closing"}
+
+JSON doesn't know how to serialize more complicated classes though:
+
+> Cat.new("Breakfast", 8, "San Francisco").to_json
+=> '"#<Cat:0x007fb87c81b398>"'
+
+You can fix this somewhat by defining a to_json method on your classes, 
+but that involves you writing custom serialization code. It will also be a pain 
+to do the opposite translation.
+
+YAML
+
+YAML is meant to solve the problem of saving custom classes.
+
+Picture of great pry commands can be found in a picture in this folder!
+
+Notice that YAML has saved the instance variables of the object, as well as
+recording the class of object that was saved.
+
+Note that c and c2 are different objects; seriliazaiton and deserilization are 
+seomtiems used as a very lazy man's clone. Don't do this: it is inefficient and
+spares you the valuable learning experienc eof figuring out how to properly
+create a deep copy of an object.
+
+JSON is the domininant serialization technology on the web (XML is a close
+second); we'll write Rails apps which can communicate by sending and receiving
+JSON data.
+
+In the world of server-side Ruby, YAML is the leader because of  its support for
+deserilizing classes.

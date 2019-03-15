@@ -1,0 +1,15 @@
+Front-end Development
+
+Front-end development can be split up into three major coding langauges: 
+
+HTML - HyperText Markup langauge defines the structure of a website semantically
+and the content tha tiwll be rendered by the web broswer. 
+
+CSS - Cascading Stylesheets deal with the presentaiton of content including 
+aspects such as layout, formatting and colors.
+
+Javascript -One of the most popular coding langauges in the world, brings
+movement and user interation to websites
+
+This curriculur focuses on teh first two cornerstones of modern front-end
+development. 
