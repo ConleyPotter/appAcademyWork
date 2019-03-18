@@ -19,7 +19,7 @@ end
 def exponent(b, n)
     return 1 if n <= 0
     return b if n == 1
-
+    
 end
 
 # Write a method that returns the sum of all elements in an array recursively
@@ -77,13 +77,8 @@ end
 # string_include_key("cba", "abc") => false
 def string_include_key?(string, key)
     # working except edge cases
-    return false if string.empty?
-    key.each_char do |char|
-        return false if !string.include?(char)
-        start = string.index(char)
-        string_include_key?(string[start, -1], key)
-    end
-    true
+    return true if key.empty? 
+    key
 end
 
 # Using recursion and the is_a? method,
