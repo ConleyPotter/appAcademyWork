@@ -1,0 +1,6 @@
+### What is CSS? ###
+
+CSS is an abbreviation of Cascading Style Sheets, a style sheet language for markup (XML, HTML, XHTML). It empowers developers to separate document content from presentation.
+
+Style sheets are collections of stylistic rules; they have been used by editors and typographers since long before the web. A style sheet language describes the presentation of structured documents, like an HTML document. CSS is 'Cascading' because multiple files can be combined to style one page.
+
