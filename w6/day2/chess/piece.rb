@@ -250,6 +250,7 @@ class NullPiece < Piece
     # attr_reader :color, :symbol
 
     def intialize
+        # super
         # super nil :all
         # @symbol = "   "
         # @color = :none
