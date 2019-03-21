@@ -1,3 +1,4 @@
+require_relative 'null_piece'
 require 'singleton'
 
 class Piece
@@ -143,7 +144,11 @@ class Knight < Piece
             [2,1],
             [-2,1],
             [2,-1],
-            [-2,-1]
+            [-2,-1],
+            [1,2],
+            [-1,2],
+            [1,-2],
+            [-1,-2]
         ]
     end
 end
@@ -242,11 +247,12 @@ end
 class NullPiece < Piece
     include Singleton
 
-    attr_reader :color, :symbol
+    # attr_reader :color, :symbol
 
     def intialize
-        @symbol = "   "
-        @color = :none
+        # super nil :all
+        # @symbol = "   "
+        # @color = :none
     end
 
 end
