@@ -105,6 +105,5 @@ class Cursor
       @cursor_pos[0] += diff_x
       @cursor_pos[1] += diff_y
     end
-    puts @cursor_pos
   end
 end

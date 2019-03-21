@@ -12,29 +12,28 @@ class Display
     end
 
     def render
-        rows = @board.rows
-        # debugger
         display = ""
-        rows.each.with_index do |row, row_idx|
-            row.each.with_index do |col, col_idx|
-                curr = rows[row_idx][col_idx]
-                if @cursor.cursor_pos == [row_idx, col_idx]
-                    if !curr.is_a?(NullPiece)
-                        display << " ".colorize(:background => :white) + "\u{2654}" + " ".colorize(:background => :white)
+        colors = [:black, :white]
+        position_color = colors[0]
+        (0..7).each do |row|
+            (0..7).each do |col|
+                position_color = colors[(row + col) % 2]
+                position = [row,col]
+                piece_in_position = @board[position]
+                if @cursor.cursor_pos == position
+                    if !piece_in_position.is_a?(NullPiece)
+                        display << (" " + piece_in_position.symbol + " ").colorize(:background => :red)
+                    else
+                        display << "   ".colorize(:background => :red)
                     end
-                    display << "   ".colorize(:background => :purple)
-                elsif !curr.is_a?(NullPiece)
-                    display << " " + "\u{2654}" + " "
-                elsif row_idx % 2 == 0
-                    display << "   ".colorize(:background => :white)
+                elsif !piece_in_position.is_a?(NullPiece)
+                    display << (" " + piece_in_position.symbol + " ").colorize(:color => :green, :background => position_color)
                 else
-                    display << "   ".colorize(:background => :black)
+                    display << "   ".colorize(:background => position_color)
                 end
-
             end
             display += "\n"
         end
-        # debugger
         print display
     end
 end
