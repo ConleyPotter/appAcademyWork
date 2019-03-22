@@ -1,27 +1,7 @@
-require_relative 'null_piece'
 require 'singleton'
 
 class Piece
-
-    SYMBOLS = {
-        white: {
-            King: "\u{2654}",
-            Queen: "\u{2655}",
-            Rook: "\u{2656}",
-            Bishop: "\u{2657}",
-            Knight: "\u{2658}",
-            Pawn: "\u{2659}"
-        },
-        black: {
-            King: "\u{265A}",
-            Queen: "\u{265B}",
-            Rook: "\u{265C}",
-            Bishop: "\u{265D}",
-            Knight: "\u{265E}",
-            Pawn: "\u{265F}"
-        }
-    }
-
+    
     attr_accessor :pos
     attr_reader :color
     def initialize(color, board, pos)
@@ -29,48 +9,51 @@ class Piece
         @board = board
         @pos = pos
     end
-
+    
     def to_s
         
     end
-
+    
     def empty?
         
     end
-
-
-
+    
+    
+    
     def valid_moves
-        valid = {}
+        valid = []
         if self.is_a?(Pawn)
-            
-        else # Pawn
-            moves.each { |move| valid[move] = true }
+            valid += move_dirs
+        else
+            self.moves.each { |move| valid << move }
         end
+        debugger
         valid
     end
-
+    
     def pos=(val)
         @pos = val
     end
-
+    
     def symbol
         SYMBOLS[color]
     end
-
+    
     private
     def move_into_check(end_pos)
-
+        
     end
-
+    
 end
+
 
 module Stepable
     def moves
         moves = []
         move_diffs.each do |diff| 
             end_pos = [(@pos[0] + diff[0]), (@pos[1] + diff[1])]
-            moves << end_pos
+            next if !end_pos[0].between?(0, 7) || !end_pos[1].between?(0,7)
+            moves << end_pos unless @board[end_pos].color == self.color
         end
         moves
     end
@@ -96,37 +79,26 @@ module Slideable
                         [-1,-1]
                                 ] 
 
-    def horizantal_dirs
-        HORIZANTAL_DIRS
-    end
-
-    def diaganol_dirs
-        DIAGONAL_DIRS
-    end
-
     def moves
         moves = []
-        if self.is_a?(Rook)
-            horizantal_dirs.each do |dir|
-                moves << grow_unblocked_moves_in_dir(dir[0], dir[1])  
-            end
-        else
-            diaganol_dirs.each  do |dir|
-                moves << grow_unblocked_moves_in_dir(dir[0], dir[1]) 
-            end
+        move_dirs.each  do |dir|
+            grown = grow_unblocked_moves_in_dir(dir[0], dir[1]) 
+            moves << grown unless @board[grown].color == self.color
         end
         moves
     end
 
     private
-    def grow_unblocked_moves_in_dir(dx,dy)
-        while @board[@pos + dx].is_a?(NullPiece) && @board[@pos + dy].is_a?(NullPiece)
-            dx += 1
-            dy += 1
+    def grow_unblocked_moves_in_dir(dx, dy)
+        # don't ever mutate dx or dy, they just tell which direction to go in!
+        new_pos = [@pos[0] + dx, @pos[1] + dy]
+        while @board[new_pos].is_a?(NullPiece)
+            new_pos[0] += dx
+            new_pos[1] += dy
         end
-        new_x = @pos[0] + dx
-        new_y = @pos[1] + dy
-        [new_x, new_y]
+        new_pos[0] -= dx
+        new_pos[1] -= dy
+        new_pos
     end
 end
 
@@ -135,9 +107,9 @@ class Knight < Piece
     include Stepable
 
     def symbol
-        super[:Knight]
+        return @color == :white ? "♘".colorize(:color => :green) : "♞".colorize(:color => :blue)
     end
-
+    
     protected
     def move_diffs
         [
@@ -155,11 +127,11 @@ end
 
 class King < Piece
     include Stepable
-
+    
     def symbol
-        super[:King]
+        return @color == :white ? "♔".colorize(:color => :green) : "♚".colorize(:color => :blue)
     end
-
+    
     protected
     def move_diffs
         [
@@ -178,65 +150,70 @@ end
 class Rook < Piece
     include Slideable
     def symbol
-        SYMBOLS[@color][:Rook]
+        @color == :white ? "♖".colorize(:color => :green) : "♜".colorize(:color => :blue)
     end
-
+    
     protected
     def move_dirs
-        horizantal_dirs
+        HORIZANTAL_DIRS
     end
 end
 
 class Bishop < Piece
     include Slideable
     def symbol
-        SYMBOLS[@color][:Bishop]
+        @color == :white ? "♗".colorize(:color => :green) : "♝".colorize(:color => :blue)
     end
-
+    
     # protected
     def move_dirs
-        diaganol_dirs
+        DIAGONAL_DIRS
     end
 end
 
 class Queen < Piece
     include Slideable
     def symbol
-        SYMBOLS[@color][:Queen]
+        @color == :white ? "♕".colorize(:color => :green) : "♛".colorize(:color => :blue)
     end
-
+    
     protected
     def move_dirs
-        move_dirs = []
-        move_dirs << horizantal_dirs
-        move_dirs << diaganol_dirs
-        move_dirs
+        HORIZANTAL_DIRS + DIAGONAL_DIRS
     end
 end
 
 class Pawn < Piece
     def symbol
-        SYMBOLS[@color][:Pawn]
+        @color == :white ? "♙".colorize(:color => :green) : "♟".colorize(:color => :blue)    
     end
-
+    
     def move_dirs
-        [
-            [1,0],
-            [2,0]
-        ]
+        moves = []
+        if at_start_row?
+            forward_steps.each do |step|
+                moves << [(step[0] + @pos[0]), @pos[1]]
+            end
+        else
+            moves << [forward_steps[0][0] + @pos[0], forward_steps[0][1] + @pos[1]]
+        end
+        moves.select { |move| @board.valid_move?(@pos, move) && @board[move].color != self.color }
     end
 
     private
     def at_start_row?
-        pos.first == 1
+        self.color == :black ? pos.first == 1 : pos.first == 6
+    end
+    
+    def forward_steps
+        [
+            [forward_dir,0],
+            [forward_dir * 2,0]
+        ]
     end
 
     def forward_dir
-
-    end
-
-    def forward_steps
-
+        self.color == :black ? 1 : -1
     end
 
     def side_attack
@@ -247,13 +224,8 @@ end
 class NullPiece < Piece
     include Singleton
 
-    # attr_reader :color, :symbol
-
-    def intialize
-        # super
-        # super nil :all
-        # @symbol = "   "
-        # @color = :none
+    def initialize
+        @color = :none
     end
 
 end
