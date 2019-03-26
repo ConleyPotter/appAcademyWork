@@ -1,0 +1,15 @@
+O(1) -- constant time, no matter the input size
+O(n) -- linear time, grows as n grows
+  - iteration
+O(log(n)) -- 
+  - the inverse of exponents
+    - 2^2 = 4   log 2 (4) = 2
+
+O(n*log(n))
+O(n**2) -- quadratic
+  - nested loops
+
+------ everything below is terrible
+O(n^k) -- n^m -- polynomial
+O(2**n) -- exponential
+O(n!) -- factorial

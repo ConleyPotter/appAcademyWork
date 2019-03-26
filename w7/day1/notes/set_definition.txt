@@ -1,0 +1,16 @@
+# O(g) = {f
+            f does not dominate
+          g}
+g = n**2
+g = 2n + 1000000[1000000 does not dominate 2n]
+g = 2**n
+g = n**2 / n    [n does not dominate n**2]
+
+O(2n**2) == O(n**2)
+but the left side doesn't even make sense, it ignore asymptotic analysis
+this can be described as simplicity
+
+if an algorithm has two parts:
+1.) O(n)
+2.) O(n**3) 
+then its big o notation is O(n**3) because 2.) dominates 1.)

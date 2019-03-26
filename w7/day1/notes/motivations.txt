@@ -1,0 +1,14 @@
+### What makes algorithm A *better* than algorithm B? ###
+
+# Usually that means faster/speed 
+# What are the factors? 
+    # we can think about hardware
+    # or the number of steps
+    # language implementation
+    # input size
+        # finding a letter in a string, the string could be a word or a 
+        # novel
+
+# but what can be controlled by the algorithm?
+    # a language lives in a space free from the hardware and language implementation
+    
