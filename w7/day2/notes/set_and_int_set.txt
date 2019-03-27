@@ -1,0 +1,74 @@
+### Set ###
+
+Mathematical definition, list inside of {}. it's filled with objects that appear
+at most once in the set. not ordered, there's no implicit ordering, so you can't
+say Set.first. 
+
+Very simple API for the ADT: 
+  - include? => O(n) time
+  - insert  => O(n) time, scanning to check for el icnlusion
+  - delete  => O(n) time, scanning through to check for el's position
+
+Many ways to implement a set, one way is with an array wrapped in a "Set" class. 
+
+So to make the above ops faster, we could make a restriciton on Object types, 
+only allowing ints for instance
+
+  - find the smallest and largest, and have as many indices as the range between
+    those max and min
+      - implementation:
+        {2,1,4,0}
+          max = 4
+          min = 0
+        [true, true, true, false, true]
+        - now we can query the set based on its truthy-ness or falsey-ness at the
+          index, inclusion query
+        - this quickens things because indexing into an array is O(1) time
+
+### why is array indexing O(1) time? ###
+
+- an array is stored as a contiguous block of memory
+  | 3 | 5 | 8 | 10 | 12 | nil |
+   908 916 929  932  940         <= memory address
+
+  @ram_address = 908
+  @length = 5
+  index 0 = 908 + 8*0 = 908     <= this is known as pointer arithmetic: this allows
+  index 1 = 908 + 8*1 = 916         us to index into an array in O(1) time, 
+                                    array's are very faster
+
+Set: 
+[3,5,8,10,12] = [true, false, true, false, false, true...true..true..true]
+insert is now O(1)
+include? is now O(1)
+delete is now O(1)
+
+downsides to this idea: can only integers (not floats, strings, etc)  
+  and it's memory usage is abysmal
+    - the range of nunmbers could be arbitrarily large
+
+
+
+
+### Resizing Int Set ###
+
+- make it a fixed size
+    | n | n | n | n |
+  - but there are 7 integers, and there are only 4 slots...
+    - double bunk them and call the slots buckets
+
+    |___|___|___|___|
+      0   1   2   3   <= we can use % to always know what bucket the item is in,
+                         any number is in its n % size bucket
+    
+    | 4 | 1 | 6 |   | <= {1,4,6,64,128,129}
+    | 64|129|   |   |
+    |128|   |   |   |
+    |___|___|___|___| 
+      0   1   2   3
+
+- now we can put any element to the set and it will map to any one of these buckets
+    - there will only be n/4 elements, so include? => O(n)
+    - insert => O(n)  (scan through the bucets to check for inclusion)
+    - delete => O(n)
+    - but its memory size is good => O(1)
