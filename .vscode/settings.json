@@ -1,7 +1,7 @@
 
 // UI Settings
 {
-  "workbench.colorTheme": "βui - Ocean Light",
+  "workbench.colorTheme": "Dracula Soft",
   "workbench.iconTheme": "vscode-icons",
   "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "explorer.decorations.badges": true,

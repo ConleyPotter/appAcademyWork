@@ -1,0 +1,36 @@
+    STUDENTS
+id | name  | cohort
+-------------------
+1  |'Clare' |2015-10-26
+2  | 'Ken'  |2015-10-26
+
+- This is what's known as the relational model
+    - every row will have a unique primary key, so that no two students have the
+      the same primary key
+    - an RDBMS takes the queries and queries the database with that query
+    - Ex: SQLite is a very light weight RDMBS, it's serverless and is great
+    when we have concerns about space
+        - the entire DB can be stored in a file
+        - never used in a production web app, bc it doesn't have a server, doesn't
+        handle mutliple requests coming in very well
+
+- How do we get to the point we're at above, with a table and data and a server
+
+### Data Definition Language & Data Manipulation Lang ###
+
+- DDL: defines the structure of our tables
+    - this is where we build the tables
+    - CREATE table
+    - DROP (inverse)
+
+- DML: allows us to add, edit, or delete data in tables
+    - SELECT: most common word in the DML
+    - INSERT
+    - UPDATE
+    - DELETE
+
+### SQLite Key Terms ###
+.tables 
+    - displays table names
+.schemas
+    - displays the schemas of your tables
