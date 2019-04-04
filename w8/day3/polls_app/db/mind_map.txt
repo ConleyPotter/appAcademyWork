@@ -1,0 +1,35 @@
+User => 
+unique username
+
+authored_polls
+responses
+-------
+Poll => 
+title 
+user_id(foreign_key)
+
+belongs_to User
+has_many Question
+-------------
+Question =>
+text
+poll_id(foreign_key)
+
+belongs_to Poll
+has_many AnswerChoice
+
+----------
+Answer =>
+text
+question_id(foreign_key)
+
+belongs_to Question
+has_many responses
+---------------
+Response =>
+User.id <=> Answer.id
+user_id(foreign_key)
+answer_id(foreign_key)
+
+belongs_to answer
+belongs_to respondent
