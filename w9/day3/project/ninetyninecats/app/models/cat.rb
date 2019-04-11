@@ -1,6 +1,6 @@
 class Cat < ApplicationRecord
   include ActionView::Helpers::DateHelper
-  COLORS = { in: [:white, :black, :calico, :tan, :grey] }
+  COLORS = { in: ["white", "black", "calico", "tan", "grey"] }
 
   validates :birthdate, :color, :name, :sex, :description, presence: true
   validates :color, inclusion: COLORS
