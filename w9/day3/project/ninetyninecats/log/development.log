@@ -130,3 +130,50 @@ Processing by CatsController#index as HTML
 Completed 200 OK in 75ms (Views: 73.0ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/cats" for ::1 at 2019-04-11 07:12:53 -0500
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.9ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (38.3ms)
+Completed 200 OK in 70ms (Views: 53.9ms | ActiveRecord: 12.2ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-11 07:12:54 -0500
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 102ms (Views: 36.0ms | ActiveRecord: 38.0ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-11 07:13:37 -0500
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (1.8ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/show.html.erb within layouts/application (40.9ms)
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 1.8ms)
+
+
+
+NoMethodError - undefined method `capitlize' for "black":String
+Did you mean?  capitalize
+               capitalize!:
+  app/views/cats/show.html.erb:28:in `_app_views_cats_show_html_erb___1554865797051274086_70360780186560'
+  app/controllers/cats_controller.rb:9:in `show'
+
+Started POST "/__better_errors/8b9232743368d2cc/variables" for ::1 at 2019-04-11 07:13:38 -0500
+Started GET "/cats/1" for ::1 at 2019-04-11 07:13:50 -0500
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (2.1ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 42ms (Views: 37.0ms | ActiveRecord: 2.1ms)
+
+

@@ -1,0 +1,36 @@
+<h1>Cat Show</h1>
+
+<a href="<%= edit_cat_url(@cat) %>%">Edit Cat</a>
+<br>
+
+<h3><%= @cat.name %></h3><br>
+
+<p><%= @cat.description %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="1">Attribute</th>
+      <th colspan="1">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Name:</td>
+      <td><%= @cat.name %><br></td>
+    </tr>
+    <tr>
+      <td>Age:</td>
+      <td><%= @cat.age%><br></td>
+    </tr>
+    <tr>
+      <td>Color:</td>
+      <td><%= @cat.color.capitalize %><br></td>
+    </tr>
+    <tr>
+      <td>Sex:</td>
+      <td><%= @cat.sex %><br></td>
+    </tr>  
+  </tbody>
+</table>
+
