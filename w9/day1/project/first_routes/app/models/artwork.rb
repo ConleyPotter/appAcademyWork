@@ -11,8 +11,9 @@
 #
 
 class Artwork < ApplicationRecord
-  validates :title, :image_url, :artist_id, presence: true
-  validates :artist_id, uniqueness: { scope: :title }
+  validates :title, :image_url, presence: true
+  validates :image_url, uniqueness: true
+  validates :title, uniqueness: { scope: :artist_id }
 
   belongs_to :artist,
     foreign_key: :artist_id,
@@ -20,14 +21,38 @@ class Artwork < ApplicationRecord
     class_name: :User,
     dependent: :destroy
 
-  has_many :sharers,
+  has_many :artwork_shares,
     foreign_key: :artwork_id,
     primary_key: :id,
     class_name: :ArtworkShare,
     dependent: :destroy
 
   has_many :shared_viewers,
-    through: :sharers,
-    source: :viewer,
+    through: :artwork_shares,
+    source: :viewer
+
+  has_many :comments,
+    foreign_key: :artwork_id,
+    primary_key: :id,
+    class_name: :Comment,
     dependent: :destroy
+
+  has_many :likes,
+    as: :likeable,
+    dependent: :destroy
+
+  has_many :people_who_have_liked,
+    through: :likes,
+    source: :user,
+    dependent: :destroy
+
+  has_many :favorites,
+    foreign_key: :artwork_id,
+    primary_key: :id,
+    class_name: :Favorite,
+    dependent: :destroy
+
+  has_many :people_who_have_favorited,
+    through: :favorites,
+    source: :user
 end

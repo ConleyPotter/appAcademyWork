@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   def index
-    render json: User.all
+    if valid_params.include?(:username)
+      users = User.find_by_search(valid_params[:username])
+    else
+      users = User.all
+    end
+
+    render json: users
   end
 
   def show
