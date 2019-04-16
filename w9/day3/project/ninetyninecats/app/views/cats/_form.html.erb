@@ -10,7 +10,7 @@ else
     method = "POST"
 end %>
 
-<form action="<%= action %>" method="<%=method %>">
+<form action="<%= action %>" method="<%= method %>">
 
   <% if edit %>
     <input type="hidden" name="_method" value="PATCH">

@@ -1,0 +1,8 @@
+<h1>Destroy <%= @band.name %>?</h1>
+
+<form action="<%= band_url(@band) %>" method="POST">
+  <input type="hidden" name="_method" value="<%= method %>">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <input type="submit" name="band[name]" id="band_name" value="<%= band.name %>">
+</form>

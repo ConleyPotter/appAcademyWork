@@ -2,7 +2,7 @@
 // UI Settings
 {
   "workbench.colorTheme": "Dracula Soft",
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "material-icon-theme",
   "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "explorer.decorations.badges": true,
   "editor.fontSize": 14,
