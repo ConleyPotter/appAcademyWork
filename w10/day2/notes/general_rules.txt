@@ -1,0 +1,11 @@
+### General Rules ###
+
+- The more specific selector wins
+- If equally specific, the last declared one wins
+- Styles cascade, if not overwritten
+- Avoid !important, inline styles and id selectors. They do not lead to dry, 
+  maintainable code.
+- You can apply your styles to multiple selectors at once by separating them by 
+  commas: selector1, selector1 { property: value; }
+
+  
