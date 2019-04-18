@@ -3908,3 +3908,20 @@ Completed 200 OK in 94ms (Views: 90.3ms | ActiveRecord: 0.0ms)
 
 Started GET "/assets/application.self-5fdf40032b994961a522a7b35187fc48dcc47316b0641fa4c7fdb750bae3275e.css?body=1&livereload=1555457485156" for ::1 at 2019-04-16 18:31:25 -0500
 Started GET "/assets/application.self-5fdf40032b994961a522a7b35187fc48dcc47316b0641fa4c7fdb750bae3275e.css?body=1&livereload=1555457485158" for ::1 at 2019-04-16 18:31:25 -0500
+Started GET "/" for ::1 at 2019-04-17 10:26:26 -0500
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from block (3 levels) in <class:Railtie> at /Users/conleypotter/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.0.7.2/lib/active_record/railtie.rb:113)
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered shared/_gear_dropdown.html.erb (1.9ms)
+  Rendered shared/_main_nav.html.erb (16.1ms)
+  Rendered shared/_masthead.html.erb (397.6ms)
+  Rendered shared/_sections_nav.html.erb (0.5ms)
+  Rendered shared/_search_modal.html.erb (0.3ms)
+  Rendered shared/_main_content.html.erb (0.2ms)
+  Rendered static_pages/index.html.erb within layouts/application (454.1ms)
+Completed 200 OK in 717ms (Views: 714.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2019-04-17 10:26:27 -0500
+Started GET "/assets/application.self-8900b8d0ee67ebf2182f1213168cf89676e57b7e3f225eb5e562f85b6844fee4.css?body=1" for ::1 at 2019-04-17 10:26:27 -0500
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2019-04-17 10:26:27 -0500
