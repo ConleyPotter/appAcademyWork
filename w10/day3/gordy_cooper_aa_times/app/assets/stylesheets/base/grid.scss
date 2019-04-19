@@ -1,0 +1,48 @@
+.col {
+  font-family: $serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+
+
+/* Attribute selector targeting all elements
+with a class attribute containing 'col-' */
+[class*='col-'] {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.col-2-3 {
+  display: flex;
+  flex-direction: row;
+  width: 66.666%;
+  .inner {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.col-1-3 {
+  // display: flex;
+  width: 33.3333333%;
+}
+
+[class*='col-']:last-of-type {
+  // ...
+}
+
+@media all and (max-width: 1000px) {
+  [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
