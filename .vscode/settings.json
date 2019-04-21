@@ -1,7 +1,7 @@
 
 // UI Settings
 {
-  "workbench.colorTheme": "Dracula Soft",
+  "workbench.colorTheme": "βui - Espresso Soda",
   "workbench.iconTheme": "material-icon-theme",
   "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "explorer.decorations.badges": true,
