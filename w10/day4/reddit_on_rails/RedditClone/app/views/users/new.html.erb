@@ -1,14 +1,29 @@
-<h1>Sign Up</h1>
+<section class="container">
+  <header><h1>Reddit on Rails</h1></header>
+  <section class="log-in-box">
+    <section class="col-2-3 log-in-image">
+      <%= image_tag("mountain_beach.jpg") %>
+    </section>
+    <section class="col-1-3">
+      <section class="log-in-header">
+        <h1>Sign Up</h1>
 
-<form action="<%= users_url %>" method="POST">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <h5>Already have an account? <a href="<%= new_session_url %>">Log In</a></h5>
+      </section>  
+      <section class="log-in-form">
+        <form action="<%= users_url %>" method="POST">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-  <input type="text" name="user[username]">
-  Username 
+          <h4>Username</h4>
+          <input type="text" name="user[username]">
 
-  <input type="password" name="user[password]">
-  Password
+          <h4>Password</h4>
+          <input type="password" name="user[password]">
 
-  <input type="submit" value="Sign Up">
-  
-</form>
+          <input type="submit" value="Sign Up">
+          
+        </form>
+      </section>
+    </section>
+  </section>
+</section>

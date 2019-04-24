@@ -19,7 +19,7 @@ say_hello # prints "hello" forever
 # recusive method defintions still obeys all the evalutation rules as a normal
 # method, so like suual, the code will not run until we call it. 
 
-# Let's ste ptrhough how this code evaluates. For cliarty, we'll be numbering the
+# Let's steptrhough how this code evaluates. For cliarty, we'll be numbering the
 # calls to say_hello. The initial call will be number 0:
 
   # - When we call say_hello for the first time (say_hello_0) we run the code

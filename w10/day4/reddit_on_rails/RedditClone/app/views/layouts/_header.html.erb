@@ -1,0 +1,10 @@
+<nav>
+  <%= image_tag 'rail.png', class:"logo" %>
+  <ul class="header-links">
+    <li>My Subs</li>
+    <li>All Subs</li>
+    <li>Most Popular</li>
+  </ul>
+  <button><% if logged_in %>Log In<% else %>Sign up<% end %>
+  </button>
+</nav>

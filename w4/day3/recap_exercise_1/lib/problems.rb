@@ -91,6 +91,7 @@ class String
         substring = []
         if length
             self[]
+        end
     end
 
 
