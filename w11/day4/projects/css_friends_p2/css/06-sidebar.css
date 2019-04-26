@@ -1,0 +1,16 @@
+/* PHASE 6: Sidebar */
+.content-sidebar .profile-picture a {
+  display: block;
+  margin-top: -100px;
+  position: relative;
+}
+
+.content-sidebar .profile-nav ul li:first-child {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.content-sidebar .profile-nav ul li:last-child {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}

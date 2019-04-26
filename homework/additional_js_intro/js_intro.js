@@ -52,8 +52,22 @@ let herd = [ellie, charlie, kate, micah];
 
 Elephant.prototype.paradeHelper = function () {
   console.log(`${this.name} is trotting by!`);
-}
+};
 
 herd.forEach(function (el) {
   el.paradeHelper();
 });
+
+function dinerBreakfast() {
+  let order = "scrambed eggs and bacon";
+  return function(food) {
+    if (typeof food === "string") {
+      order += " " + food;
+    }
+    console.log(order);
+  }
+};
+
+let bfastOrder = dinerBreakfast();
+bfastOrder("choclate chip pancakes");
+bfastOrder("grits");
