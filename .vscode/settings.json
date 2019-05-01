@@ -1,7 +1,7 @@
 
 // UI Settings
 {
-  "workbench.colorTheme": "βui - Espresso Soda",
+  "workbench.colorTheme": "Dracula Soft",
   "workbench.iconTheme": "material-icon-theme",
   "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "explorer.decorations.badges": true,
@@ -23,6 +23,7 @@
   "solargraph.hover": true,
   "solargraph.formatting": true,
   "git.ignoreLimitWarning": true,
+  "editor.tabSize": 2,
 }
 
 
