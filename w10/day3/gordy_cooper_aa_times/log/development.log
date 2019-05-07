@@ -9603,3 +9603,26 @@ Completed 200 OK in 1524ms (Views: 1507.8ms | ActiveRecord: 0.0ms)
 
 Started GET "/assets/application.self-3ee4bd6bb782e14968947954eda74dc53ab98af5784d296003b03331e60475d3.css?body=1" for ::1 at 2019-04-18 21:21:41 -0500
 Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2019-04-18 21:21:41 -0500
+Started GET "/" for ::1 at 2019-05-04 13:18:08 -0500
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from block (3 levels) in <class:Railtie> at /Users/conleypotter/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.0.7.2/lib/active_record/railtie.rb:113)
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered shared/_gear_dropdown.html.erb (0.6ms)
+  Rendered shared/_main_nav.html.erb (9.8ms)
+  Rendered shared/_masthead.html.erb (322.0ms)
+  Rendered shared/_sections_nav.html.erb (0.6ms)
+  Rendered shared/_search_modal.html.erb (0.5ms)
+  Rendered shared/_main_content.html.erb (1.9ms)
+  Rendered static_pages/index.html.erb within layouts/application (367.2ms)
+Completed 200 OK in 527ms (Views: 513.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-3ee4bd6bb782e14968947954eda74dc53ab98af5784d296003b03331e60475d3.css?body=1" for ::1 at 2019-05-04 13:18:09 -0500
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2019-05-04 13:18:09 -0500
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2019-05-04 13:18:09 -0500
+Started GET "/assets/components/dropdown.self-815016af6fab1d5b72abd319213bf62f0c42bab2c585d2e059543ae704a0d74c.js?body=1" for ::1 at 2019-05-04 13:18:09 -0500
+Started GET "/assets/components/modal.self-52188644dbb47def5ee35ae02e69eb567ca9b664472357a8a5789dd39032a265.js?body=1" for ::1 at 2019-05-04 13:18:09 -0500
+Started GET "/assets/application.self-f571b9db02bf4ed04c38a6a29072ac382f7d4f47db1fab9817aeadb0d8665235.js?body=1" for ::1 at 2019-05-04 13:18:09 -0500
+Started GET "/assets/components/sidebar.self-2a1277f850a6fa21e1a974ef5152f177ac05516477d5081d593bb137b3d6808b.js?body=1" for ::1 at 2019-05-04 13:18:09 -0500
+Started GET "/assets/AA_Times_Logo-e1718475fb0f0b8b1bc532d8879cc2e9c78f23b104b0c0989a179d78fc8747fa.png" for ::1 at 2019-05-04 13:18:09 -0500
+Started GET "/assets/new_office-dc8255e20493abaf1d75b0f4bdea30fa294f1b9219a228c32d5bce0e422fc16b.jpg" for ::1 at 2019-05-04 13:18:09 -0500

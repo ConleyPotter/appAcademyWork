@@ -1,0 +1,48 @@
+.clock {
+  font-family: 'ZCOOL KuaiLe', cursive;
+  width: 25%;
+  margin: 0 auto;
+  background-color: fuchsia;
+  padding: 10px;
+  color: lightgreen;
+  border: 5px solid black;
+}
+
+.time {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tabs-list {
+  border: 5px solid black;
+  border-radius: 7px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  background-color: lightgoldenrodyellow;
+  font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+.tabs-list li {
+  border: 2px solid blue;
+}
+
+.tabs-list li:hover {
+  background-color: red;
+  cursor: pointer;
+}
+
+.weather {
+  font-family: 'ZCOOL KuaiLe', cursive;
+  border: 5px solid black;
+  background: purple;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
