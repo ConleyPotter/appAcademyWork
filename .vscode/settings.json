@@ -1,7 +1,7 @@
 
 // UI Settings
 {
-  "workbench.colorTheme": "Noctis",
+  "workbench.colorTheme": "Noctis Lux",
   "workbench.iconTheme": "material-icon-theme",
   "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "explorer.decorations.badges": true,
